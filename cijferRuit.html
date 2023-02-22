@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+   <title>Opdracht ruit pattern </title>
+</head>
+<body>
+    <script>
+      document.write("<center>");
+      var upper_half = prompt("Enter the diamond's height:" );
+      var lower_half = upper_half -1 //voor aftellen
+      var test = lower_half //voor dash
+
+
+      for(teller = 1; teller <= upper_half; teller++){ //teller is = 1 2 3 4 5 6 7 8 9 10 11 12
+         for(j = 1; j <= teller; j++){ // for j in range (teller) (om de hoogte  te printen)
+            if (j == teller){
+               document.write(j
+            );
+            } else{
+               document.write(j + " - "
+            );
+            }
+         }
+      
+         document.write("<br/>")
+      }
+
+      for(m = 1; m <= lower_half; m++){
+         var a = 1;
+         for(k = m; k <= lower_half; k++){
+            if (a == test){
+               document.write(a++
+            );
+            } else{
+               document.write(a++ + " - "
+            );
+            }
+         }
+         test -- // min 1 elke regel 
+         document.write("<br/>")
+      }
+
+    </script>
+
+ </body>
+</html>
+
+
+
+
+
+<!-- h = int(input("Enter diamond's height: "))
+
+for x in range(h):
+    print(" " * (h - x), "*" * (2*x + 1))
+for x in range(h - 2, -1, -1):
+    print(" " * (h - x), "*" * (2*x + 1)) -->
