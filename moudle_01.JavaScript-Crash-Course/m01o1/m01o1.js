@@ -4,11 +4,12 @@ let uitleg = "In een parkeergarage passen 80 auto's op de begane grond en 120 op
 alert(uitleg);
 let gewenste_aantal_autos = prompt("Hoeveel autos wilt u kwijt in de parkeergarage?");
 // Berekenen hier het aantal verdiepingen
-if (gewenste_aantal_autos <= 80) {
-    aantal_verdiepingen = 0
-  } else {
-    aantal_verdiepingen = Math.ceil(gewenste_aantal_autos / 120)
-  }
+// code verbeteren (korter maken)
+// if (gewenste_aantal_autos <= 80) {
+//     aantal_verdiepingen = 0
+//   } else {
+//     aantal_verdiepingen = Math.ceil(gewenste_aantal_autos / 120)
+//   }
 
 // Using innerHTML
 let antwoord = "Om het gewenste aantal autos kwijt te kunnen heb ik " + aantal_verdiepingen + " verdiepingen nodig.";

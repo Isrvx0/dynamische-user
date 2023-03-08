@@ -15,11 +15,16 @@ function horeca_app(){
         var keuze = prompt("Wat wilt u bestellen?  ");
         if (keuze in dranks){
             var aantal = parseInt(prompt("Hoeveel drankje wilt u hebben?  "));
+            if (bon.includes(keuze)){
+                console.log("hello")
+                bon["amount"] += aantal
+            }else{
             bon.push({
                 "name" : keuze,
                 "price" : dranks[keuze],
                 "amount" : aantal
             });
+            };
             totaalPrijs += dranks[keuze] * aantal
         } else if (keuze.toLowerCase() == 'stop'){
             testen = false
@@ -32,27 +37,3 @@ function horeca_app(){
 }
 
 console.log(horeca_app())
-
-
-    // earnings.append({
-    //     'name'   :keuze,
-    //     'price'  : keuze,
-    //     'end'    : round(endCash,2)
-    // })
-
-
-// earnings.append({
-//     'name'   : fellowship[index]['name'],
-//     'start'  : round(startCash,2),
-//     'end'    : round(endCash,2)
-// })
-// return earnings
-
-
-
-// let i = 0;
-
-// do {
-//     console.log(scores[i]);
-//     i++;
-// } while (i < scores.length);
