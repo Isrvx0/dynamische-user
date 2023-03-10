@@ -1,45 +1,47 @@
-function horeca_app(){
-    //lists
+function drank_bestellen(){
     const dranks = {
         "bier" : 2.50,
         "wijn" : 3.75,
         "fris" : 1.65
     };
-    //var
-    let meer_bestellen = true;
 
-    while (meer_bestellen) {
+   let keuze_not_in_drank = true;
+    while (keuze_not_in_drank){
         var keuze = prompt("Wat wilt u bestellen?  ");
-        if (keuze in dranks){
-            var aantal = parseInt(prompt("Hoeveel drankje wilt u hebben?  "));
-            if (keuze.toLowerCase() == "bier"){
-                brierAmount += aantal
-            } else if (keuze.toLowerCase() == "wijn"){
-                wijnAmount += aantal
-            } else{
-                frisAmount += aantal
-            } 
-        } else if (keuze.toLowerCase() == 'stop'){
-            meer_bestellen = false
-        } else {
-            alert("Sorry, Dat ken ik niet")   
+        if (keuze in dranks || keuze == "stop") {
+            keuze_not_in_drank = false;
+        }
+        else{
+            alert("Sorry! Dat hebben we niet! ")
         }
     }
-    return bon
-}
-function bon(brierAmount , wijnAmount , frisAmount , totaalPrijs ){
-    if (brierAmount > 0){
-        bon += ("Name: bier "+ "Price: 2.50 " + "Amount: " + brierAmount);
-        totaalPrijs += (2.50 * brierAmount);
-    } if (wijnAmount > 0){
-        bon += ("\nName: wijn "+ "Price: 3.75 " + "Amount: " + wijnAmount);
-        totaalPrijs += (3.75 * wijnAmount);
-    } if (frisAmount > 0){
-        bon += ("\nName: fris "+ "Price: 1.65 " + "Amount: " + frisAmount);
-        totaalPrijs += (1.65 * frisAmount);
-    }
-    bon += ("\nTotaal prijs =  " + totaalPrijs)
-    return bon
+    return keuze
 }
 
-function 
+function hoeveelheid_kiezen(drank){
+    var aantal = parseInt(prompt("Hoeveel " + drank + " wilt u hebben?"));
+    return aantal
+}
+
+
+var bon = {"bier":{naam: "bier",prijs: 2.50, amount: 0} , "wijn":{naam: "wijn",prijs: 3.75,amount: 0},"fris":{naam: "fris",prijs: 1.65,amount: 0}}
+var meer_bestellen = true
+var totaal_prijs = 0;
+
+while (meer_bestellen){
+    var bestellen = drank_bestellen();
+    if (bestellen != "stop"){
+        hoeveelheid = hoeveelheid_kiezen(bestellen);
+        bon[bestellen].amount += hoeveelheid;
+    } else{
+        for (item in bon){
+            totaal_prijs +=  bon[item].prijs * bon[item].amount;
+            if (bon[item].amount == 0){
+                delete bon[item];
+            }
+        }
+        console.log(bon);
+        console.log("totaal prijs:   " + totaal_prijs);
+        meer_bestellen = false;
+    }
+}
