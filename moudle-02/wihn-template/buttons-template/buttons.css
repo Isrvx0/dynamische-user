@@ -11,10 +11,12 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 #image1{
-    height: 450px;
+    height: 400px;
     margin-left: 50px;
 }
 #image2{
     margin-left: 500px;
-
+}
+#button_1:disabled , #button_2:disabled, #button_3:disabled{
+    background-color: red;
 }
