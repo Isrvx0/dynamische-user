@@ -13,7 +13,6 @@ function checkKey(e) {
     	console.log("spacebar");
         image.style.transform = "rotate(90deg)"
         image.style.backgroundPosition = `-${parseInt(move)}px 0px`;
-
     } else if (e.keyCode == '38') {  // up arrow
         console.log("Up arrow");
         image.style.transform = "rotate(360deg)"

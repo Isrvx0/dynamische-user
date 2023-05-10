@@ -6,6 +6,5 @@
 #image {
 	height: 80px;
 	width: 80px;
-	position: absolute;
 	background: url('tank.png') 0px 0px;
 }
