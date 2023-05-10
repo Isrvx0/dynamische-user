@@ -18,4 +18,4 @@ function checkKey(e) {
     	console.log("right arrow");
     	image.style.backgroundPosition = `164px 0px`; // check goed de rupsband
     }
-}zz
+}
