@@ -4,13 +4,14 @@
 }
 
 #image {
+	position: fixed;
 	height: 80px;
 	width: 80px;
 	background: url('tank.png') 0px 0px;
 }
 
 #demo{
-	position:absolute;
-	left: 5px;
+	position: fixed;
+	left: 10px;
 	top: 10px;
 }
