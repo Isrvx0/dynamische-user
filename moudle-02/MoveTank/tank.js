@@ -1,11 +1,13 @@
 var image = document.getElementById("image");
+var demo = document.getElementById("demo");
 
 document.onkeydown = checkKey;
 image.style.transform = "rotate(90deg)"
 let move = 0;
-
+let steps = 10;
 
 function checkKey(e) {
+    steps = steps + 10
     move = parseInt(move) + 164;
 	console.log("key nr = " + e.keyCode);
     e = e || window.event;
@@ -29,8 +31,9 @@ function checkKey(e) {
         image.style.backgroundPosition = `-${parseInt(move)}px 0px`;
 
     } else if (e.keyCode == '39') {   // right arrow
-    	console.log("right arrow");
+        console.log("right arrow");
     	image.style.backgroundPosition = `${parseInt(move)}px 0px`; // check goed de rupsband
         image.style.transform = "rotate(90deg)"
+        demo.style.left = `${parseInt(steps)}px`;
     }
 }
