@@ -3,12 +3,12 @@ var demo = document.getElementById("demo");
 
 document.onkeydown = checkKey;
 image.style.transform = "rotate(90deg)"
-let move = 0;
+let position = 0;
 let step = 5;
 
 function checkKey(e) {
     step = step + 5
-    move = move + 164;
+    position = position + 164;
 	console.log("key nr = " + e.keyCode);
     e = e || window.event;
     if(e.keyCode == 32){
@@ -25,11 +25,12 @@ function checkKey(e) {
 
     } else if (e.keyCode == '39') {   // right arrow
     	console.log("right arrow");
-    	demo.style.position = `${parseInt(move)}px 0px`; // check goed de rupsband
-        image.style.backgroundPosition = `${parseInt(move)}px 0px`; // check goed de rupsband
-
         image.style.transform = "rotate(90deg)"
-        demo.style.left =`${parseInt(step)}px`;
+        image.style.backgroundPosition = `-${parseInt(position)}px 0px`; // check goed de rupsband
 
-    }
+        demo.style.left =`${parseInt(step)}px`;
+    } if (position < 1312) { 
+        position = position + 256;
+    } else { 
+        position = 256; }
 }
