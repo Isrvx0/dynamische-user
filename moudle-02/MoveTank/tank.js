@@ -3,8 +3,6 @@ var demo = document.getElementById("demo");
 var width = window.innerWidth - 100;
 var height = window.innerHeight - 100;
 
-console.log(`width: ${width}`);
-console.log(`height: ${height}`);
 document.onkeydown = checkKey;
 image.style.transform = "rotate(90deg)"
 let position = 0;
