@@ -16,13 +16,16 @@ var btn_num = parseInt(prompt("How many buttons do you want to create?  "));
 function createButton (button_numbers){
   for(let number = 1; number < button_numbers +1; number++){
         let newBtn = document.createElement('button');
-        var lineBreak = document.createElement("br");
+        //var lineBreak = document.createElement("br");
       
         newBtn.innerText= number;
         document.querySelector('#container').appendChild(newBtn);
-        newBtn.onclick = function() {
-          newBtn.style.backgroundColor= 'red';
-        };
+        // newBtn.onclick = function() {
+        //   newBtn.style.backgroundColor= 'red';
+        // };
+
+
+        // change the color :
         newBtn.clicks = 0
         newBtn.addEventListener('click', function() {
           this.clicks++;
@@ -33,7 +36,8 @@ function createButton (button_numbers){
             newBtn.style.backgroundColor= 'blue';
           } else if (this.clicks >= 4){
             newBtn.style.backgroundColor= 'black';
-            
+          } if (this.clicks >= 5){
+            newBtn.remove();
           }
        });
 
