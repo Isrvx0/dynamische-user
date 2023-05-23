@@ -23,12 +23,19 @@ function createButton (button_numbers){
         newBtn.onclick = function() {
           newBtn.style.backgroundColor= 'red';
         };
-
-      //   newBtn.addEventListener('click', function() {
-      //     clicks++;
-      //     newBtn.style.backgroundColor= 'red';
-      //     console.log(clicks)
-      //  });
+        newBtn.clicks = 0
+        newBtn.addEventListener('click', function() {
+          this.clicks++;
+          newBtn.style.backgroundColor= 'red';
+          if (this.clicks == 2){
+            newBtn.style.backgroundColor= 'purple';
+          } else if (this.clicks == 3){
+            newBtn.style.backgroundColor= 'blue';
+          } else if (this.clicks >= 4){
+            newBtn.style.backgroundColor= 'black';
+            
+          }
+       });
 
         for (num in numbers){
           if (number == numbers[num]){
