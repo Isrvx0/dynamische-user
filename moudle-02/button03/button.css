@@ -1,5 +1,7 @@
 #container{
     background-color: grey;
     padding: 10px;
-    margin: 30px;
+    margin: 50px;
+    width: 100%;
+    height: auto;
 }
