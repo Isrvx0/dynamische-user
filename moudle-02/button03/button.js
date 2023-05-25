@@ -16,7 +16,7 @@ var btn_num = parseInt(prompt("How many buttons do you want to create?  "));
 function createButton (button_numbers){
   for(let number = 1; number < button_numbers +1; number++){
         let newBtn = document.createElement('button');
-        //var lineBreak = document.createElement("br");
+        var lineBreak = document.createElement("br");
       
         newBtn.innerText= number;
         document.querySelector('#container').appendChild(newBtn);
@@ -54,10 +54,8 @@ function createButton (button_numbers){
         newBtn.style.backgroundColor = "green";
         newBtn.style.color = "white";
         newBtn.style.fontFamily= "Serif";
-        newBtn.style.fontSize = "45px"
-
-        
-
+        newBtn.style.fontSize = "45px";
+  
       }
     };
 
