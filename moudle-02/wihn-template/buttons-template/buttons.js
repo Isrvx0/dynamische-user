@@ -1,45 +1,27 @@
-const img = document.getElementById('image1');
-const img2 = document.getElementById('image2');
-
-const button1 = document.getElementById('button_1');
-const button2 = document.getElementById('button_2');
-const button3 = document.getElementById('button_3');
+const img = document.getElementById("image1");
+const img2 = document.getElementById("image2");
 
 
-var btn1 = 0
-var btn2 = 0
-var btn3 = 0
+button_1.onclick = changeImage;
+button_2.onclick = changeImage;
+button_3.onclick = changeImage;
+
+button_1.number = 0;
+button_2.number = 0;
+button_3.number = 0;
 
 
 // change the image :
-function changeImage1(){
-    img.src = 'images/bg1.jpg';
-    img2.src = 'images/1.jpg';
-    btn1 += 1
-    button1.innerHTML = btn1;
-    // document.querySelector('#button_1').disabled = true; // Zoeken en retourneren
-    button1.disabled = true;
-    button2.disabled = false;
-    button3.disabled = false;
-}
+function changeImage(event){
+    var btn_id = this.id.replace("button_","");
+    img.src = `images/bg${btn_id}.jpg`;
+    img2.src = `images/${btn_id}.jpg`;
 
-function changeImage2(){
-  img.src = 'images/bg2.jpg';
-  img2.src = 'images/2.jpg';
-  btn2 += 1
-  button2.innerHTML = btn2;
-  // document.querySelector('#button_1').disabled = true; // Zoeken en retourneren
-  button1.disabled = false;
-  button2.disabled = true;
-  button3.disabled = false;
-}
-function changeImage3(){
-  img.src = 'images/bg3.jpg';
-  img2.src = 'images/3.jpg';
-  btn3 += 1
-  button3.innerHTML = btn3;
-  // document.querySelector('#button_1').disabled = true; // Zoeken en retourneren
-  button1.disabled = false;
-  button2.disabled = false;
-  button3.disabled = true;
-}
+    this.number  += 1;
+    this.innerHTML =  this.number;
+    let buttons = document.querySelectorAll("button")
+    for (button of buttons){
+      button.disabled = false;
+    }
+    this.disabled = true;
+};

@@ -1,0 +1,112 @@
+/* Style HTML elements : --------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: darkblue;
+}
+
+p {
+    position:relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+    color: white;
+    z-index: 1;
+    text-align: center;
+    justify-content: center;
+
+}
+
+/* Game board position and style: --------------------------- */
+#game_board {
+    border: 1px solid white;
+    margin: 0 25px;
+
+}
+
+#container { 
+    margin: 5px 10px;
+    position:relative;
+    width: auto;
+    height: 89vh;
+    background-color: #0066b2;
+    display: grid;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+/* Button position and style : --------------------------- */
+#button_group{
+    position:relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.rollen_button,.score_button,.help_button{
+    margin: 0 10px;
+    padding: 10px 30px;
+    background-color: #89CFF0;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+}
+/* Pionnen position : ---------------------------*/
+#pionnen_group{
+    text-align: center;
+}
+
+.fa-robot
+{
+    margin: 0 30px;
+} 
+
+
+/* Give the pionnen a color : ---------------------------*/
+.blue-color {
+    color:rgb(45, 45, 174);
+}
+.yellow-color {
+    color:rgb(250, 225, 111);
+}
+.green-color {
+    color:rgb(20, 70, 20);
+}
+.purple-color {
+    color:rgb(68, 24, 58);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body{
+    background-color: rgb(18, 16, 100);
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    }
+
+    
+
+#game_board{
+    padding: 20px;
+    background-color: #0022ff;
+} */
