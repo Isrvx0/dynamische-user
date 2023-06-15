@@ -54,20 +54,20 @@ function create_pionnen(e) {
                 var class_name = button.className;
                 var this_className = this.className;
 
-                if (style === player_turn ) { // Check if other className have the same background color!
+                if (style === `light${player_turn}` ) { // Check if other className have the same background color!
                         button.style.background = "white";
                 }               
                 
                 if (this_className === snack_place[0]|| this_className === snack_place[1]) {
                         new_className = parseInt(this_className) + 10;
                         if (showAlert){
-                                alert("You land on the highest numbered square of the snake, and you will land on the lowest numbered square.")
+                                alert("You land on the lowest numbered square of the snake, and you will land on the highest numbered square.")
                         }
                 } else if (this_className === snack_place[2]|| this_className === snack_place[3]) {
                         new_className = parseInt(this_className) - 10;
                         
                         if (showAlert){
-                                alert("You land on the lowest numbered square of the snake, and you will land on the highest numbered square.")
+                                alert("You land on the highest numbered square of the snake, and you will land on the lowest numbered square.")
                         }
 
                 };
@@ -76,10 +76,10 @@ function create_pionnen(e) {
                 
                 if (new_className > 0) {
                         if (parseInt(class_name) === new_className) {
-                                button.style.background = `${player_turn}`
+                                button.style.background = `light${player_turn}`
                         } 
                 } else if (new_className === 0) {
-                        this.style.background = `${player_turn}`
+                        this.style.background = `light${player_turn}`
                 }
                 
                 winner(this_className , this.style.background , board_game);
@@ -89,7 +89,7 @@ function create_pionnen(e) {
 
 // ------------------------------ Check Winner :
 function winner(class_name , style , board_game) {
-        if (parseInt(class_name) == 50 && style !== "white") {
+        if (parseInt(class_name) == 50) {
                 alert (`Winner is ${style}`)
                 var play_againg = prompt("Do you want to play again? ")
                 if (play_againg.toLowerCase() == "yes") {
@@ -99,8 +99,6 @@ function winner(class_name , style , board_game) {
                 }
 
         }
-        return;
-
 };
 
 createCard();

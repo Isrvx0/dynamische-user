@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: darkblue;
+    background-color: rgb(247, 247, 185);
 }
 
 p {
@@ -14,7 +14,7 @@ p {
     left: 50%;
     transform: translateX(-50%);
     font-size: 3em;
-    color: white;
+    color: black;
     z-index: 1;
     text-align: center;
     justify-content: center;
@@ -33,7 +33,7 @@ p {
     position:relative;
     width: auto;
     height: 89vh;
-    background-color: #0066b2;
+    background-color: rgb(115, 210, 242);
     display: grid;
     justify-content: space-evenly;
     align-content: space-evenly;
@@ -52,9 +52,9 @@ p {
 #rollen_button,#score_button,#help_button{
     margin: 0 10px;
     padding: 10px 30px;
-    background-color: #89CFF0;
+    background-color: #f1f7a4;
     border: none;
-    color: white;
+    color: black;
     font-size: 1.2em;
 }
 /* Pionnen position : ---------------------------*/
@@ -70,16 +70,16 @@ p {
 
 /* Give the pionnen a color : ---------------------------*/
 .blue-color {
-    color:rgb(45, 45, 174);
+    color:lightcyan;
 }
 .yellow-color {
-    color:rgb(250, 225, 111);
+    color:rgb(254, 254, 187);
 }
 .green-color {
-    color:rgb(20, 70, 20);
+    color:lightgreen;
 }
 .purple-color {
-    color:rgb(68, 24, 58);
+    color: lightpink;
 }
 
 
