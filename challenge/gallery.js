@@ -1,5 +1,4 @@
 var container = document.getElementById("image-container")
-let imageList = ["image1", "image2", "image3", "image4", "image5"]
 const img = document.createElement('img');
 
 img.src = `image/image1.jpg`;
