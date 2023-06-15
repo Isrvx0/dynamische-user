@@ -66,11 +66,12 @@ var questionsList = [
 // let snake_up = ["13" , "30"] // +10
 // let snack_down = ["15" , "24"] // -10
 let snack_place = ["13", "30", "15", "24"]
-let questionButtons = ["5", "17", "28", "44", "49"]
+let questionButtons = ["4", "11", "17", "23", "28", "44", "49"]
 
 rollen_button.onclick = rollen;
 // score_button.onclick 
 help_button.onclick = help;
+question_button.onclick = question;
 
 // ------------------------------ Create the game board :
 function createCard (){
@@ -116,6 +117,21 @@ function rollen(e) {
 function help(e) {
         window.open("image/handleiding.pdf");};
 
+// ------------------------------ Question function :
+function question(e) {
+        random_question = (Math.floor(Math.random() * questionsList.length))      
+            
+        var answer = prompt(questionsList[random_question]['question'])       
+        // check if the right answer =
+        if (answer === questionsList[random_question]['answer']){
+                alert("Correct! Keep going!")
+        } else {
+                alert(`It's actually ${questionsList[random_question]['answer']}, but half the world thinks it's 6 just like you.\nGood luck next time!`)
+        }
+
+}; 
+
+
 // ------------------------------ Pionnen :
 function create_pionnen(e) {
         var new_className = 0;
@@ -159,7 +175,7 @@ function create_pionnen(e) {
 
                 // check questionButtons
                 for (button of questionButtons) {
-                        if (button == class_name) {
+                        if (button == this_className) {
                                 question();
                                 return;
                         }
@@ -183,23 +199,29 @@ function winner(style , game_board) {
                 game_board.innerHTML = "";
                 createCard()
         }
-
-
         };
-// ------------------------------ Question function :
-
-function question(e) {
-        random_question = (Math.floor(Math.random() * questionsList.length))      
-            
-        var answer = prompt(questionsList[random_question]['question'])       
-        // check if the right answer =
-        if (answer === questionsList[random_question]['answer']){
-                alert("Correct! Keep going!")
+     
+// ------------------------------ Ladders function :
+function score(e) {
+        let scoreList = []
+        var winner_checker = prompt("How can i help you?\n1. Add a winner \n2. Add points for the correct answer")
+        var winner_name = prompt("What is the winner name? \n> ")
+        if (winner_checker == 1) {
+                scoreList.push({
+                        "name" : winner_name,
+                        "score" : 100
+                })
         } else {
-                alert(`It's actually ${questionsList[random_question]['answer']}, but half the world thinks it's 6 just like you.\nGood luck next time!`)
+                scoreList.push({
+                        "name" : winner_name,
+                        "score" : 20
+                })    
         }
+        return scoreList
+} 
 
-};      
+
+
 
 // ------------------------------ moving function :
 

@@ -49,7 +49,7 @@ p {
     justify-content: center;
 }
 
-#rollen_button,#score_button,#help_button{
+#rollen_button,#score_button,#help_button,#question_button{
     margin: 0 10px;
     padding: 10px 30px;
     background-color: #f1f7a4;
@@ -57,56 +57,26 @@ p {
     color: black;
     font-size: 1.2em;
 }
-/* Pionnen position : ---------------------------*/
+/* Pionnen position and style: ---------------------------*/
 #pionnen_group{
     text-align: center;
+    cursor:context-menu;
 }
-
-.fa-robot
-{
+.fa-robot {
     margin: 0 30px;
-} 
-
+}
 
 /* Give the pionnen a color : ---------------------------*/
-.blue-color {
-    color:lightcyan;
-}
+
 .yellow-color {
     color:rgb(254, 254, 187);
 }
+.blue-color {
+    color:lightcyan;
+}
 .green-color {
-    color:lightgreen;
+    color:lightseagreen;
 }
 .purple-color {
-    color: lightpink;
+    color: lightcoral;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* body{
-    background-color: rgb(18, 16, 100);
-}
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    }
-
-    
-
-#game_board{
-    padding: 20px;
-    background-color: #0022ff;
-} */
