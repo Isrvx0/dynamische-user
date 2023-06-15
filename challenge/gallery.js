@@ -44,7 +44,6 @@ function changeImage(e) {
 
 // Style : ----------------------------------
 img.style.width= "75%";
-img.style.justifyContent= "75%";
 
 img.style.position= "relative";
 img.style.left= "50%";
