@@ -1,11 +1,77 @@
 let board_game = document.querySelectorAll("button")
+const movingElements = document.getElementsByClassName("moving");
+
+var questionsList = [
+        {
+            "question" : "Wat is een Variable?\n1. Variabelen zijn containers die bedoeld zijn om dingen niet binnen te houden.\n2. Variabelen zijn containers voor het opslaan van gegevenswaarden.\n3.Een variabele in een python-programma geeft gegevens aan de computer voor verwerking.",
+            "answer" : "2"
+        },{
+            "question" : "Wat is een String?\n1. Strings is een nummer. \n2.Strings is een zin of een word. \n3.String is een decimaal getal",
+            "answer" : "2"
+        },{
+            "question" : "Wat doet een input?\n1. Een bepaalde tekst in een tekst toevoegen. \n2.Een vraag stellen aan de gebruiker. \n3.Een vraag stellen aan de programmeur  ",
+            "answer" : "1"
+        },{
+            "question" : "Wat doet een elif?\n1. Een voorwaarde om iets te checken. \n2. Een input om een vraag te stellen. \n3.Als de vorige voorwaarden niet waar waren, probeer dan deze. \n4.Geen van de bovenste. ",
+            "answer" : "3"
+        },{
+            "question" : "Welke van deze is een float?\n1. 4 \n2. 5,443 \n3. 3.59 \n4. 20093",
+            "answer" : "3"
+        },{
+            "question" : "Welke operator geeft aan dat het getal a gelijk is aan getal b?\n1. a = b \n2. a != b \n3. a += b \n4. a == b",
+            "answer" : "4"
+        },{
+            "question" : " Wat betekent a > b?\n1. a is klijner dan b \n2. a is groter dan b \n3. a is gelijk aan of klijner dan b  \n4. a is gelijk aan of groter dan b",
+            "answer" : "2"
+        },{
+            "question" : "Welke van de volgende is een dictionary: \n1. { } \n2. [] \n3. () \n4. <>",
+            "answer" : "1"
+        },{
+            "question" : "Welke van de volgende is de juiste extensie van een Python-bestand?\n1. .python \n2. .py \n3. .pl \n4. .p",
+            "answer" : "2"
+        },{
+            "question" : "Welk trefwoord wordt gebruikt voor functie in Python?\n1. function \n2. fun \n3. define \n4. def",
+            "answer" : "4"
+        },{
+            "question" : "Welke van de volgende is niet een core data-type in Python?\n1. list \n2. class \n3. tuple \n4. dictionary",
+            "answer" : "2"
+        },{
+            "question" : "Welke van de volgende is een tuple:\n1. { } \n2. [] \n3. () \n4. <>",
+            "answer" : "3"
+        },{
+            "question" : "Wat is de output van \nprint(4 + 2 * 2)\n1. 12 \n2. 8 \n3. 6 \n4. 4 + 2 * 2",
+            "answer" : "2"
+        },{
+            "question" : "Welke antwoord is niet een keyword?\n1. both \n2. not \n3. or \n4. none ",
+            "answer" : "1"
+        },{
+            "question" : "Wat gebeurt er als je een 'break' in een while loop zet?\n1. de while loop loopt nog 1 keer en stopt \n2. de while loop stopt \n3.de while loop gaat verder \n4. Niks :)",
+            "answer" : "2"
+        },{
+            "question" : " Wat doet een random.shuffle?\n1. het geeft een random geselecteerd element uit een opgegeven reeks \n2. het reorganiseert de volgorde van de items.",
+            "answer" : "2"
+        },{
+            "question" : "Wat is de output van het volgende stukje code? \nabc = 'ABC zijn de eerste Drie letters van het alfabet.' \nprint(abc.lower())\n1. Abc zijn de eerste drie letters van het alfabet. \n2. ABC zijn de eerste drie letters van het alfabet. \n3. abc zijn de eerste drie letters van het alfabet.\n4. ABC zijn de eerste Drie letters van het alfabet.",
+            "answer" : "3"
+        },{
+            "question" : "Wat doet een len?\n1. geeft het aantal items in een object terug \n2. geeft het lengte van een object terug \n3.geeft het aantal letters in een object terug",
+            "answer" : "1"
+        },{
+            "question" : "Wanneer wordt het Final-blok uitgevoerd in een exception handling?\n1. wanneer er geen uitzondering is \n2. altijd \n3. wanneer er een uitzondering is\n4. alleen als aan een bepaalde voorwaarde is voldaan",
+            "answer" : "2"
+        }
+    ]
+    
+
 // let snake_up = ["13" , "30"] // +10
 // let snack_down = ["15" , "24"] // -10
 let snack_place = ["13", "30", "15", "24"]
+let questionButtons = ["5", "17", "28", "44", "49"]
+
 rollen_button.onclick = rollen;
 // score_button.onclick 
 help_button.onclick = help;
-let questionList = ["5", "17", "28", "44", "49"]
+
 // ------------------------------ Create the game board :
 function createCard (){
         for(let number = 1; number < 50 +1; number++){
@@ -31,7 +97,7 @@ function createCard (){
                 newBtn.style.position = "relative"
                 newBtn.onclick = create_pionnen;
 
-                for (element of questionList) {
+                for (element of questionButtons) {
                         if (element == newBtn.className) {
                                 newBtn.style.background = `#DDA0DD`;
                                 newBtn.style.color = `white`;
@@ -39,7 +105,8 @@ function createCard (){
                         }
                 }
         }}
-            
+createCard();
+     
 // ------------------------------ Rollen :
 function rollen(e) {
         alert ("YOU ROLLED: " + (Math.floor(Math.random() * 12+1)) + "🎲");
@@ -89,38 +156,52 @@ function create_pionnen(e) {
                 } else if (new_className === 0) {
                         this.style.background = `light${player_turn}`
                 }
-                
-                // for (element of questionList) {
-                //         if (element == class_name) {
-                //                 new_question;
-                //         }
-                winner(this_className , this.style.background , board_game);
+
+                // check questionButtons
+                for (button of questionButtons) {
+                        if (button == class_name) {
+                                question();
+                                return;
+                        }
+                };
+                // check winner
+                if (this_className == 50) {
+                        winner(this.style.background ,game_board);
+                        return;
+                }
                 
         } 
 };
 
 // ------------------------------ Check Winner :
-function winner(class_name , style , board_game) {
-        if (parseInt(class_name) == 50) {
-                alert (`Winner is ${style}`)
-                var play_againg = prompt("Do you want to play again? ")
-                if (play_againg.toLowerCase() == "yes") {
-                        for (button of board_game){
-                                button.style.background = "white"
-                        }
-                }
-
+function winner(style , game_board) {
+        alert (`Winner is ${style}`)
+        var play_againg = prompt("Do you want to play again? ")
+        
+        // start the game again
+        if (play_againg.toLowerCase() == "yes") {
+                game_board.innerHTML = "";
+                createCard()
         }
-};
 
+
+        };
 // ------------------------------ Question function :
 
-// function question(e) {
+function question(e) {
+        random_question = (Math.floor(Math.random() * questionsList.length))      
+            
+        var answer = prompt(questionsList[random_question]['question'])       
+        // check if the right answer =
+        if (answer === questionsList[random_question]['answer']){
+                alert("Correct! Keep going!")
+        } else {
+                alert(`It's actually ${questionsList[random_question]['answer']}, but half the world thinks it's 6 just like you.\nGood luck next time!`)
+        }
 
-// };
+};      
 
-
-const movingElements = document.getElementsByClassName("moving");
+// ------------------------------ moving function :
 
 for (let i = 0; i < movingElements.length; i++) { // alle pionnen krijgen relative position
 
@@ -185,7 +266,6 @@ document.onmousedown = filter;
 document.ontouchstart = filter;
 
 
-createCard();
 
 
 
