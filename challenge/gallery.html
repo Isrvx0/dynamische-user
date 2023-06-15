@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">                
+    <title> Image gallery</title>
+    <style>
+        #container {
+            border: 1px solid black;
+            margin: 15px;
+            margin-top: 5%;
+            padding: 20px;
+            left: 50%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #button_group{
+            position:relative;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        button {
+            margin: 0 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="button_group">
+            <button id="previous"> Previous </button>
+            <button id="next"> Next </button>
+        </div>
+        <div class="image">
+            <div id="image-container"></div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="gallery.js"></script>
+  
+</body>
+</html>

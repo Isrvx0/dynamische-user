@@ -29,7 +29,7 @@ function createCard (){
                 newBtn.style.textAlign = "center"; 
                 newBtn.style.verticalAlign = "middle";
         
-                newBtn.onclick = change_background;
+                newBtn.onclick = create_pionnen;
         }}
             
 // ------------------------------ Rollen :
@@ -42,7 +42,7 @@ function help(e) {
         window.open("image/handleiding.pdf");};
 
 // ------------------------------ Pionnen :
-function change_background(e) {
+function create_pionnen(e) {
         var new_className = 0;
         showAlert = true
         var player_turn = prompt("Which player is trun now?");
@@ -81,90 +81,29 @@ function change_background(e) {
                 } else if (new_className === 0) {
                         this.style.background = `${player_turn}`
                 }
-        }
-        
-        
-        // class_name = this.className
-        // for ( number of snake_up) {
-        //         if ( number === class_name ){
-        //                 class_name =  parseInt(class_name ) + 10
-
-        //                 for (button of board_game) {
-        //                         var clas = button.className;
-        //                         if (parseInt(clas) === class_name) {
-        //                                 console.log("hello")
-        //                                 this.style.background = "white"
-        //                                 button.style.background = `${player_turn}`
-
-        //                         }
-        //                 }
-        //         }
-
-        // }
+                
+                winner(this_className , this.style.background , board_game);
+                
+        } 
 };
 
-// ------------------------------ check snack position :
+// ------------------------------ Check Winner :
+function winner(class_name , style , board_game) {
+        if (parseInt(class_name) == 50 && style !== "white") {
+                alert (`Winner is ${style}`)
+                var play_againg = prompt("Do you want to play again? ")
+                if (play_againg.toLowerCase() == "yes") {
+                        for (button of board_game){
+                                button.style.background = "white"
+                        }
+                }
 
+        }
+        return;
+
+};
 
 createCard();
-
-// function change_background(e) {
-//         var player_turn = prompt("Which player is trun now?");
-//         let board_game = document.querySelectorAll("button")
-//         var newClass = 0;
-
-//         for (button of board_game) {
-//                 var style = button.style.background;
-//                 var class_name = button.className;
-//                 var this_className = this.className;
-
-//                 if (style === player_turn ) {
-//                         button.style.background = "white";
-//                 };
-//                 if (this_className === snack_place[0] && this_className === snack_place[1]) {
-//                         var newClass = parseInt(this_className) + 10;
-//                 } else if (this_className === snack_place[2] && this_className === snack_place[3]) {
-//                         var newClass = parseInt(this_className) - 10;
-//                 };
-                
-//                 if (class_name == this_className ) {
-//                         this.style.background = "white"
-//                         button.style.background = `${player_turn}`
-//                 } else {
-//                         this.style.background = `${player_turn}`
-
-//                 }
-//                 ;
-                
-
-//         }
-//         this.style.background = `${player_turn}`
-        
-//         class_name = this.className
-//         for ( number of snake_up) {
-//                 if ( number === class_name ){
-//                         class_name =  parseInt(class_name ) + 10
-//                         console.log(class_name)
-
-//                         for (button of board_game) {
-//                                 var clas = button.className;
-//                                 if (parseInt(clas) === class_name) {
-//                                         console.log("hello")
-//                                         this.style.background = "white"
-//                                         button.style.background = `${player_turn}`
-
-//                                 }
-//                         }
-//                 }
-
-//         }
-// };
-
-
-
-
-
-
 
 
 
