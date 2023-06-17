@@ -20,7 +20,16 @@ p {
     justify-content: center;
 
 }
-
+footer {
+    width: var(--mainwidth);
+    text-align: center;
+    margin: 0 auto 20px;
+    height: 30px;
+    background-color: var(--darkcolor);
+    font-weight: bold;
+    color: var(--lightcolor);
+    padding-top: 10px;
+}
 /* Game board position and style: --------------------------- */
 #game_board {
     border: 1px solid white;
@@ -72,7 +81,7 @@ p {
     color:rgb(254, 254, 187);
 }
 .blue-color {
-    color:lightcyan;
+    color:rgb(159, 246, 246);
 }
 .green-color {
     color:lightseagreen;

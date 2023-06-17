@@ -7,73 +7,104 @@
     <body>
 
         <script>
-            let scoreList1 = []
+            // player's number =
+            function playerNumbers(e) {
+                player_number = prompt("How many players? ")
+                
+            }
+
+            // player's name + player's list =
+            function playerName(e) {
+                var playerList = []
+
+                for (var i=0; i<player_number; i++){
+                    var player_name = prompt(`What is player ${i+1} name?`)
+                    playerList.push({
+                    "name": player_name,
+                    "score": 0
+                })
+            }
+            return playerList
+        }
             
-            function score(scoreList) {
+                        
+                playerNumbers()
+                let playerlist = playerName()
+                for (player of playerlist) {
+                    console.log(player.name)
+                    player.score += 50
+                    console.log(player)
+                }
+                //console.log(playerlist)
 
-                    var winner_checker = prompt("How can i help you?\n1. Add a winner \n2. Add points for the correct answer")
-                    var winner_name = prompt("What is the winner name?")
-                    
-                    for (player of scoreList) {
-                        if (player['name'] == winner_name.toLocaleLowerCase()) {
-                            if (winner_checker == 1) {
-                                player["score"] += 100;
-                            } else {
-                                player["score"] += 20;    
-                            }
-                        }else{
-                            if (winner_checker == 1) {
-                                scoreList.push({
-                                "name" : winner_name,
-                                "score" : 100})
-                            } else {
-                                scoreList.push({
-                                "name" : winner_name,
-                                "score" : 20})
-                            }}
-                    }
-                    
-                    
-                    
-                    return scoreList
-            };
 
-            // organize element in array :
-            function listMaker(scoreList) {
-                let newScoreList = [];
-                for (player of scoreList) {
-                    for (element of newScoreList){
-                        if (player['name'] != element['name'] ) {
-                            newScoreList.push(player)
-                        } else {
-                            element['score'] += player["score"]
-                        }
-                    }
-                console.log(newScoreList)
-                return newScoreList
-            }}
-            scoreList1 += score(scoreList1)
-            scoreList1 += score(scoreList1)
-
-            console.log(scoreList1)
         </script>
-    </body>
-</html>
 
-<!-- def bonnetje(smaken_lijst,topping_price,soort_klant):
-    totaal_prijs = 0
-    winkel_elements = [
-             { 'name' : 'aardbei', 'amount' : 0, 'price' : 0.95},
-             { 'name' : 'chocolade', 'amount' : 0, 'price' : 0.95},
-             { 'name' : 'vanille', 'amount' : 0, 'price' : 0.95},
-             { 'name' : 'hoorntje', 'amount' : 0, 'price' : 1.25 },
-             { 'name' : 'bakje', 'amount' : 0, 'price' : 0.75}]
+<!-- //             function score(scoreList) {
+
+    //                     var winner_checker = prompt("How can i help you?\n1. Add a winner \n2. Add points for the correct answer")
+    //                     var winner_name = prompt("What is the winner name?")
+                        
+    //                     for (player of scoreList) {
+    //                         if (player['name'] == winner_name.toLocaleLowerCase()) {
+    //                             if (winner_checker == 1) {
+    //                                 player["score"] += 100;
+    //                             } else {
+    //                                 player["score"] += 20;    
+    //                             }
+    //                         }else{
+    //                             if (winner_checker == 1) {
+    //                                 scoreList.push({
+    //                                 "name" : winner_name,
+    //                                 "score" : 100})
+    //                             } else {
+    //                                 scoreList.push({
+    //                                 "name" : winner_name,
+    //                                 "score" : 20})
+    //                             }}
+    //                     }
+                        
+                        
+                        
+    //                     return scoreList
+    //             };
     
-    bon = []
-    lijst = []
+    //             // organize element in array :
+    //             function listMaker(scoreList) {
+    //                 let newScoreList = [];
+    //                 for (player of scoreList) {
+    //                     for (element of newScoreList){
+    //                         if (player['name'] != element['name'] ) {
+    //                             newScoreList.push(player)
+    //                         } else {
+    //                             element['score'] += player["score"]
+    //                         }
+    //                     }
+    //                 console.log(newScoreList)
+    //                 return newScoreList
+    //             }}
+    //             scoreList1 += score(scoreList1)
+    //             scoreList1 += score(scoreList1)
     
-    #smaken vullen :
-    for item in winkel_elements:
-        for smaak in smaken_lijst:
-            if smaak == item['name']:
-                item['amount'] += 1 -->
+    //             console.log(scoreList1)
+    //         </script>
+    //     </body>
+    // </html>
+    
+    //def bonnetje(smaken_lijst,topping_price,soort_klant):
+    //     totaal_prijs = 0
+    //     winkel_elements = [
+    //              { 'name' : 'aardbei', 'amount' : 0, 'price' : 0.95},
+    //              { 'name' : 'chocolade', 'amount' : 0, 'price' : 0.95},
+    //              { 'name' : 'vanille', 'amount' : 0, 'price' : 0.95},
+    //              { 'name' : 'hoorntje', 'amount' : 0, 'price' : 1.25 },
+    //              { 'name' : 'bakje', 'amount' : 0, 'price' : 0.75}]
+        
+    //     bon = []
+    //     lijst = []
+        
+    //     #smaken vullen :
+    //     for item in winkel_elements:
+    //         for smaak in smaken_lijst:
+    //             if smaak == item['name']:
+    //                 item['amount'] += 1 -->

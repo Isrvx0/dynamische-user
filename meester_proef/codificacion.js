@@ -1,6 +1,9 @@
 let board_game = document.querySelectorAll("button")
 const movingElements = document.getElementsByClassName("moving");
 
+var playersNumber = playerNumbers();
+let playersList = playerName(playersNumber);
+
 var questionsList = [
         {
             "question" : "Wat is een Variable?\n1. Variabelen zijn containers die bedoeld zijn om dingen niet binnen te houden.\n2. Variabelen zijn containers voor het opslaan van gegevenswaarden.\n3.Een variabele in een python-programma geeft gegevens aan de computer voor verwerking.",
@@ -66,10 +69,10 @@ var questionsList = [
 // let snake_up = ["13" , "30"] // +10
 // let snack_down = ["15" , "24"] // -10
 let snack_place = ["13", "30", "15", "24"]
-let questionButtons = ["4", "11", "17", "23", "28", "44", "49"]
+let questionButtons = ["4", "11", "17", "23", "28", "36", "44", "49"]
 
 rollen_button.onclick = rollen;
-// score_button.onclick 
+score_button.onclick = score(playersList);
 help_button.onclick = help;
 question_button.onclick = question;
 
@@ -108,12 +111,12 @@ function createCard (){
         }}
 createCard();
      
-// ------------------------------ Rollen :
+// ------------------------------ Rollen function:
 function rollen(e) {
         alert ("YOU ROLLED: " + (Math.floor(Math.random() * 12+1)) + "🎲");
 };
 
-// ------------------------------ Help Option :
+// ------------------------------ Help function :
 function help(e) {
         window.open("image/handleiding.pdf");};
 
@@ -128,9 +131,46 @@ function question(e) {
         } else {
                 alert(`It's actually ${questionsList[random_question]['answer']}, but half the world thinks it's 6 just like you.\nGood luck next time!`)
         }
+};
 
-}; 
+// ------------------------------ Score function :
+function score(playerLijst) {
+        return function() {
+                var winner_checker = parseInt(prompt("How can i help you?\n1. Add a winner \n2. Add points for the correct answer \n3. Show player scores."))
+                var winner_name = prompt("What is the player name? \n> ")
+                for (player of playerLijst) {
+                        if(player.name == winner_name) {
+                                if (winner_checker === 1) {
+                                        player.score += 50;
+                                } else if (winner_checker === 2){
+                                        player.score += 20;
+                                } else {
+                                        console.log(player)
+                                }
+                        }
+                }
+        }
+};
 
+// ------------------------------ player's number :
+function playerNumbers(e) {
+        var player_number = prompt("How many players? ")
+        return player_number    
+}
+
+// ------------------------------ player's name + player's list :
+function playerName(playersNum) {
+        var playerList = []
+
+        for (var i=0; i<playersNum; i++){
+                var player_name = prompt(`What is player ${i+1} name?`)
+                playerList.push({
+                "name": player_name,
+                "score": 0
+        })
+        }
+        return playerList
+}
 
 // ------------------------------ Pionnen :
 function create_pionnen(e) {
@@ -200,35 +240,12 @@ function winner(style , game_board) {
                 createCard()
         }
         };
-     
-// ------------------------------ Ladders function :
-function score(e) {
-        let scoreList = []
-        var winner_checker = prompt("How can i help you?\n1. Add a winner \n2. Add points for the correct answer")
-        var winner_name = prompt("What is the winner name? \n> ")
-        if (winner_checker == 1) {
-                scoreList.push({
-                        "name" : winner_name,
-                        "score" : 100
-                })
-        } else {
-                scoreList.push({
-                        "name" : winner_name,
-                        "score" : 20
-                })    
-        }
-        return scoreList
-} 
-
-
-
 
 // ------------------------------ moving function :
 
 for (let i = 0; i < movingElements.length; i++) { // alle pionnen krijgen relative position
 
   movingElements[i].style.position = "relative";
-  console.log(movingElements[i])
 }
 
 function filter(e) {
@@ -286,8 +303,6 @@ function filter(e) {
 }
 document.onmousedown = filter;
 document.ontouchstart = filter;
-
-
 
 
 
